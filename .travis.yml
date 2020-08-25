@@ -25,7 +25,9 @@ install:
   - docker buildx use mybuild
   - |
     if [ $TRAVIS_BRANCH == "master" ]; then
-      docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --push -t shyd/docker-dev-env .
+      docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --push -t shyd/debian-dev-env .
     else
-      docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --push -t shyd/docker-dev-env:${TRAVIS_BRANCH} .
+      docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --push -t shyd/debian-dev-env:${TRAVIS_BRANCH} .
     fi
+
+script: echo "Success!"
